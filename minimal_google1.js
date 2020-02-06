@@ -9,7 +9,7 @@ const axios = require('axios');
 // cities = ['BERKELEY', 'ALAMEDA', 'HAYWARD']
 
 
-axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { county: 'KERN', limit:50 } )
+axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { county: 'TEHAMA', limit:100 } )
     .then(function (response) {
       addreses = response.data;
       console.log(addreses)
@@ -18,7 +18,7 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { cou
 
       (async () => {
         let scrape_job = {
-            search_engine: 'google',
+            search_engine: 'duckduckgo',
             keywords: keywords,
             num_pages: 1,
         };

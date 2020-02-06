@@ -8,7 +8,7 @@ const axios = require('axios');
 
 
 
-axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { county: 'ALAMEDA', limit:100 } )
+axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { county: 'SAN JOAQUIN', limit:100 } )
     .then(function (response) {
       addreses = response.data;
       console.log(addreses)
