@@ -13,7 +13,7 @@ const args = process.argv.slice(2)
 console.log(args[0])
 console.log(args[1])
 
-axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { county: args[0], limit:100 } )
+axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses_scope_home_owner', { county: args[0], limit:100 } )
     .then(function (response) {
       addreses = response.data;
       console.log(addreses)
