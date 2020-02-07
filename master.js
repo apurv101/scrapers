@@ -29,7 +29,7 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { cou
 
         var results = await se_scraper.scrape({}, scrape_job);
 
-        // console.dir(results, {depth: null, colors: true});
+        console.dir(results, {depth: null, colors: true});
 
         
 
