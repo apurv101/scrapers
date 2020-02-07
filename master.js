@@ -46,6 +46,8 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { cou
           }
         }
 
+        console.log(final_data)
+
 
         axios.post('https://protected-peak-85531.herokuapp.com/save_100_addresses', { 'final_data':final_data })
         .then(function (response) {
