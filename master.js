@@ -13,7 +13,14 @@ const args = process.argv.slice(2)
 console.log(args[0])
 console.log(args[1])
 
-axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { county: args[0], limit:100, offset:args[2] } )
+if(args[0] && args[1]){
+  params = { county: args[0], limit:100, offset:args[1] }
+}
+else{
+  params = {limit:100}
+}
+
+axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', params )
     .then(function (response) {
       addreses = response.data;
       console.log(addreses)
@@ -22,7 +29,7 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', { cou
 
       (async () => {
         let scrape_job = {
-            search_engine: args[1],
+            search_engine: 'bing',
             keywords: keywords,
             num_pages: 1,
         };
