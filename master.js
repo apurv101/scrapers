@@ -16,6 +16,9 @@ console.log(args[1])
 if(args[0] && args[1]){
   params = { county: args[0], limit:100, offset:args[1] }
 }
+else if(args[0]){
+ params = {limit:100, offset:args[0] }
+}
 else{
   params = {limit:100}
 }
