@@ -58,14 +58,15 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', param
 
         console.log(final_data)
 
-
-        axios.post('https://protected-peak-85531.herokuapp.com/save_100_addresses', { 'final_data':final_data })
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-            console.log("Proabably not a valid city");
-        });
+        if(!(Object.entries(final_data).length === 0 && final_data.constructor === Object)){
+          axios.post('https://protected-peak-85531.herokuapp.com/save_100_addresses', { 'final_data':final_data })
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (error) {
+              console.log("Proabably not a valid city");
+          });
+        }
 
 
       })();
