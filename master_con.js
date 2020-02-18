@@ -8,12 +8,16 @@ const axios = require('axios');
 
 // cities = ['OAKLAND', 'SAN LEANDRO', 'PLEASANTON', 'DUBLIN']
 
-// const args = process.argv.slice(2)
+const args = process.argv.slice(2)
 
 // console.log(args[0])
 // console.log(args[1])
 
-axios.post('https://protected-peak-85531.herokuapp.com/get_100_contractors')
+if(args[0]){
+ params = {offset:args[0]}
+}
+
+axios.post('https://protected-peak-85531.herokuapp.com/get_100_contractors', params)
     .then(function (response) {
       addreses = response.data;
       console.log(addreses)
