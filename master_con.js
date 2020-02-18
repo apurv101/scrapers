@@ -26,7 +26,7 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_contractors', par
 
       (async () => {
         let scrape_job = {
-            search_engine: "google",
+            search_engine: "bing",
             keywords: keywords,
             num_pages: 1,
         };
