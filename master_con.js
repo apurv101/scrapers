@@ -8,24 +8,12 @@ const axios = require('axios');
 
 // cities = ['OAKLAND', 'SAN LEANDRO', 'PLEASANTON', 'DUBLIN']
 
-const args = process.argv.slice(2)
+// const args = process.argv.slice(2)
 
-console.log(args[0])
-console.log(args[1])
+// console.log(args[0])
+// console.log(args[1])
 
-if(args[0] && args[1]){
-  params = { county: args[0], limit:100, offset:args[1] }
-}
-else if(args[0]){
- params = {limit:100, offset:args[0] }
-}
-else{
-  params = {limit:100}
-}
-
-console.log(params)
-
-axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', params )
+axios.post('https://protected-peak-85531.herokuapp.com/get_100_contractors')
     .then(function (response) {
       addreses = response.data;
       console.log(addreses)
@@ -34,14 +22,14 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', param
 
       (async () => {
         let scrape_job = {
-            search_engine: 'bing',
+            search_engine: "bing",
             keywords: keywords,
             num_pages: 1,
         };
 
         var results = await se_scraper.scrape({}, scrape_job);
 
-        console.dir(results, {depth: null, colors: true});
+        // console.dir(results, {depth: null, colors: true});
 
         
 
@@ -58,17 +46,14 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_addresses', param
           }
         }
 
-        console.log(final_data)
 
-        if(!(Object.entries(final_data).length === 0 && final_data.constructor === Object)){
-          axios.post('https://protected-peak-85531.herokuapp.com/save_100_addresses', { 'final_data':final_data })
-          .then(function (response) {
-            console.log(response)
-          })
-          .catch(function (error) {
-              console.log("Proabably not a valid city");
-          });
-        }
+        axios.post('https://protected-peak-85531.herokuapp.com/save_100_contractors', { 'final_data':final_data })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+            console.log("Proabably not a valid city");
+        });
 
 
       })();
