@@ -26,14 +26,14 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_contractors', par
 
       (async () => {
         let scrape_job = {
-            search_engine: "bing",
+            search_engine: "google",
             keywords: keywords,
             num_pages: 1,
         };
 
         var results = await se_scraper.scrape({}, scrape_job);
 
-        // console.dir(results, {depth: null, colors: true});
+        console.dir(results, {depth: null, colors: true});
 
         
 
@@ -46,7 +46,7 @@ axios.post('https://protected-peak-85531.herokuapp.com/get_100_contractors', par
 
         for(var i=0; i< keywords.length; i++){
           if(results["results"][keywords[i]]['1']['results'].length > 0){
-            final_data[addreses[keywords[i]]] = results["results"][keywords[i]]['1']['results']
+            final_data[addreses[keywords[i]]] = results["results"][keywords[i]]
           }
         }
 
